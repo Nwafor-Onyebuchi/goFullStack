@@ -71,12 +71,12 @@ app.use((req, res, next) => {
       instructions: req.body.instructions,
       difficulty: req.body.difficulty,
       time: req.body.time,
-      _id: req.body._id
+      _id: req.params.id
     });
     Recipe.updateOne({_id: req.params.id}, recipe).then(
       () => {
         res.status(201).json({
-          message: 'Thing updated successfully!'
+          message: 'Recipe updated successfully!'
         });
       }
     ).catch(
